@@ -1,17 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../public/user/loginUser");
-
+const user = require("../public/user/loginUser");
+const checkUser = require("../middleware/authenticate");
 router.get("/", async ( req, res, next ) => {
 
     res.render("login", {});
 })
 
 router.post("/login", async (req, res, next ) => {
-    console.log("We are in here ---------------------")
     const { emailOrUsername, password } = req.body;
-    console.log(emailOrUsername);
-    res.redirect("/auth");
+    console.log(user)
+    if ( checkUser.admin(emailOrUsername, password) ) {
+        console.log("Login good");
+        res.redirect("/test")
+    } else {
+        console.log("Login bad")
+        res.redirect("/auth");
+    }
+    
 })
 
 module.exports = router;

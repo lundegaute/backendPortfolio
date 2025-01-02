@@ -10,6 +10,8 @@ const testRouter = require("./routes/test");
 const loginRouter = require("./routes/auth");
 
 require("dotenv").config();
+const db = require("./models");
+db.sequelize.sync({force: false, alter: false});
 var app = express();
 
 

@@ -7,9 +7,29 @@
 </head>
 <body>
     <%- include("./partials/navbar.ejs", {}) %>
-    <div class="container">
+    <div class="container text-center">
         <h1>Working</h1>
         <button class="btn btn-success" onclick="testButton()"> Test button </button>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role Id</th>
+                <th scope="col">Role</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% user.forEach((user) => { %>
+                    <tr>
+                        <th scope="row"><%= user.id %></th>
+                        <td><%= user.Email %></td>
+                        <td><%= user.RoleId %></td>
+                        <td><%= user.Role %></td>
+                      </tr>
+                <% }) %>
+            </tbody>
+          </table>
     </div>
 </body>
 </html>
