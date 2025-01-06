@@ -5,9 +5,9 @@ class UserService {
         this.Role = db.Role;
     }
 
-    async getUser(email) {
+    async getUserByEmail(email) {
         const query = `
-        SELECT u.id, u.Email, u.RoleId, r.Role
+        SELECT u.id, u.Email, u.RoleId, u.Salt, u.EncryptedPassword, r.Role
         from users as u
         JOIN roles as r ON r.id = u.RoleId
         WHERE u.Email = :email`

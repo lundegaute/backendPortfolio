@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Backend Portfolio</title>
   </head>
-  <body>
-    <%- include("./partials/navbar.ejs", {}) %>
+  <body class="bg-dark text-light">
+    <%- include("./partials/navbar.ejs", {user: user}) %>
     <div class="container">
 
-      <h1><%= title %></h1>
-      <p>Welcome to <%= title %></p>
-      
+      <h1>Gaute Lunde</h1>
+      <p>Portfolio</p>
+    </div>
+    <div class="container" id="CV">
+      <iframe src="/images/Gaute Skaflem Lunde CV.pdf" width="100%" height="800px" frameborder="0">Not working</iframe>
     </div>
   </body>
 </html>
